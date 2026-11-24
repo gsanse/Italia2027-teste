@@ -1,0 +1,24 @@
+#diario-bordo{--diary-accent:#205540;--diary-surface:#fff;--diary-ink:#26392e;--diary-border:#dce7df;color:var(--diary-ink)}
+#diario-bordo[data-theme="mission"]{--diary-accent:#8f3928;--diary-surface:#fff7e6;--diary-ink:#422f24;--diary-border:#cfae7d}
+#diario-bordo [hidden]{display:none!important}
+#diario-bordo .diary-panel{background:var(--diary-surface);border:1px solid var(--diary-border);border-radius:14px;padding:clamp(14px,3vw,24px);margin:12px 0;color:var(--diary-ink)}
+#diario-bordo h2,#diario-bordo h3{color:var(--diary-accent)}
+#diario-bordo label{display:block;font-weight:700;margin:12px 0 5px}
+#diario-bordo input,#diario-bordo textarea{display:block;width:100%;box-sizing:border-box;border:1px solid #777;border-radius:8px;padding:12px;font:inherit;font-size:16px;background:#fff;color:#222;min-height:48px}
+#diario-bordo textarea{resize:vertical;min-height:110px}
+#diario-bordo button{min-height:48px;padding:10px 16px;margin:6px 4px 6px 0;border-radius:8px;border:1px solid var(--diary-accent);background:var(--diary-accent);color:white;font:inherit;font-weight:700;cursor:pointer}
+#diario-bordo button.diary-secondary{background:#fff;color:var(--diary-accent)}
+#diario-bordo button:disabled{opacity:.55;cursor:wait}
+#diario-bordo :focus-visible{outline:3px solid #bc843b;outline-offset:3px}
+#diario-bordo .diary-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+#diario-bordo .diary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}
+#diario-bordo .diary-photo{min-width:0;margin:0}
+#diario-bordo .diary-photo button{width:100%;padding:0;overflow:hidden;background:#fff;border:0;display:block}
+#diario-bordo .diary-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+#diario-bordo .diary-photo .diary-secondary{width:auto;padding:10px 16px}
+#diario-bordo .diary-story{white-space:pre-wrap;overflow-wrap:anywhere}
+#diario-bordo [role=status]{min-height:1.4em;font-weight:600;overflow-wrap:anywhere}
+#diario-bordo dialog{max-width:min(96vw,1000px);max-height:96vh;padding:12px;border:0;border-radius:12px;background:#fff;color:#222}
+#diario-bordo dialog::backdrop{background:#000d}
+#diario-bordo dialog img{display:block;max-width:90vw;max-height:76vh;object-fit:contain;margin:auto}
+@media(max-width:540px){#diario-bordo .diary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#diario-bordo .diary-photo .diary-secondary{width:100%;padding:8px}#diario-bordo .diary-panel{padding:14px}}
