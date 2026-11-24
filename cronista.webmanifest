@@ -1,0 +1,20 @@
+{
+  "id": "./cronista.html",
+  "name": "Il Cronista — Sanseveros na Itália (beta)",
+  "short_name": "Il Cronista",
+  "description": "Diário privado de viagem da família Sansevero",
+  "lang": "pt-BR",
+  "start_url": "./cronista.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f6f0",
+  "theme_color": "#205540",
+  "icons": [
+    {
+      "src": "./cronista-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
