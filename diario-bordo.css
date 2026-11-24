@@ -1,24 +1,64 @@
-#diario-bordo{--diary-accent:#205540;--diary-surface:#fff;--diary-ink:#26392e;--diary-border:#dce7df;color:var(--diary-ink)}
-#diario-bordo[data-theme="mission"]{--diary-accent:#8f3928;--diary-surface:#fff7e6;--diary-ink:#422f24;--diary-border:#cfae7d}
+
+/* Mobile-first diary, isolated from the itinerary. */
+#diario-bordo{--diary-accent:#205540;--diary-surface:#fff;--diary-ink:#26392e;--diary-border:#dce7df;--diary-bg:#f7f6f0;color:var(--diary-ink);font:17px/1.45 system-ui,-apple-system,sans-serif;letter-spacing:normal;text-transform:none}
+#diario-bordo[data-theme="mission"]{--diary-accent:#853d2b;--diary-surface:#fffaf0;--diary-ink:#422f24;--diary-border:#cfae7d;--diary-bg:#f7ebd7}
 #diario-bordo [hidden]{display:none!important}
-#diario-bordo .diary-panel{background:var(--diary-surface);border:1px solid var(--diary-border);border-radius:14px;padding:clamp(14px,3vw,24px);margin:12px 0;color:var(--diary-ink)}
-#diario-bordo h2,#diario-bordo h3{color:var(--diary-accent)}
+#diario-bordo *{box-sizing:border-box;min-width:0}
+#diario-bordo h2,#diario-bordo h3{color:var(--diary-accent);font-family:inherit;letter-spacing:normal;text-transform:none;line-height:1.2;margin:0 0 8px}
+#diario-bordo h2{font-size:clamp(1.45rem,5vw,2rem)}
+#diario-bordo h3{font-size:1.15rem}
+#diario-bordo p{margin:6px 0 12px}
+#diario-bordo .diary-panel{background:var(--diary-surface);border:1px solid var(--diary-border);border-radius:16px;padding:16px;margin:12px 0;color:var(--diary-ink)}
+#diario-bordo .diary-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 15px}
+#diario-bordo .diary-back{display:inline-flex;align-items:center;min-height:48px;color:var(--diary-accent);font-weight:700;text-decoration:none}
+#diario-bordo .diary-small{font-size:.9rem;color:var(--diary-ink)}
 #diario-bordo label{display:block;font-weight:700;margin:12px 0 5px}
-#diario-bordo input,#diario-bordo textarea{display:block;width:100%;box-sizing:border-box;border:1px solid #777;border-radius:8px;padding:12px;font:inherit;font-size:16px;background:#fff;color:#222;min-height:48px}
-#diario-bordo textarea{resize:vertical;min-height:110px}
-#diario-bordo button{min-height:48px;padding:10px 16px;margin:6px 4px 6px 0;border-radius:8px;border:1px solid var(--diary-accent);background:var(--diary-accent);color:white;font:inherit;font-weight:700;cursor:pointer}
-#diario-bordo button.diary-secondary{background:#fff;color:var(--diary-accent)}
+#diario-bordo input:not([type=file]),#diario-bordo textarea{display:block;width:100%;border:1px solid #777;border-radius:10px;padding:12px;font:inherit;font-size:17px;background:#fff;color:#222;min-height:50px;max-width:100%}
+#diario-bordo textarea{resize:vertical;min-height:88px}
+#diario-bordo button,#diario-bordo .diary-pick{min-height:52px;padding:12px 16px;margin:0;border-radius:12px;border:1px solid var(--diary-accent);background:var(--diary-accent);color:white;font:inherit;font-weight:700;cursor:pointer;line-height:1.2;letter-spacing:normal;text-transform:none}
+#diario-bordo button.diary-secondary,#diario-bordo .diary-pick.diary-secondary{background:var(--diary-surface);color:var(--diary-accent)}
 #diario-bordo button:disabled{opacity:.55;cursor:wait}
 #diario-bordo :focus-visible{outline:3px solid #bc843b;outline-offset:3px}
-#diario-bordo .diary-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
-#diario-bordo .diary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}
-#diario-bordo .diary-photo{min-width:0;margin:0}
-#diario-bordo .diary-photo button{width:100%;padding:0;overflow:hidden;background:#fff;border:0;display:block}
-#diario-bordo .diary-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
-#diario-bordo .diary-photo .diary-secondary{width:auto;padding:10px 16px}
+#diario-bordo .diary-wide{width:100%;margin-top:12px}
+#diario-bordo .diary-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#diario-bordo .diary-tools>*{flex:1}
+#diario-bordo .diary-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#diario-bordo .diary-picker{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+#diario-bordo .diary-pick{display:flex;align-items:center;justify-content:center;gap:6px;position:relative;text-align:center;min-height:66px;margin:0;overflow:hidden}
+#diario-bordo .diary-pick input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+#diario-bordo .diary-pick:focus-within{outline:3px solid #bc843b;outline-offset:3px}
+#diario-bordo .diary-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(85px,1fr));gap:8px;margin:10px 0}
+#diario-bordo .diary-preview figure{margin:0;position:relative}
+#diario-bordo .diary-preview img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}
+#diario-bordo .diary-preview button{position:absolute;right:2px;top:2px;min-height:44px;width:44px;padding:0;border:2px solid #fff;background:#222e;color:#fff;border-radius:50%}
+#diario-bordo .diary-feed-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0}
+#diario-bordo .diary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin:10px -8px}
+#diario-bordo .diary-grid.single{grid-template-columns:1fr}
+#diario-bordo .diary-photo{margin:0;min-width:0}
+#diario-bordo .diary-photo button{width:100%;padding:0;overflow:hidden;background:#e7e7e1;color:var(--diary-ink);border:0;display:block;border-radius:8px;min-height:100px}
+#diario-bordo .diary-photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+#diario-bordo .diary-grid.single img{aspect-ratio:4/3}
+#diario-bordo .diary-meta{font-size:.9rem;color:var(--diary-ink);margin:0 0 6px}
 #diario-bordo .diary-story{white-space:pre-wrap;overflow-wrap:anywhere}
-#diario-bordo [role=status]{min-height:1.4em;font-weight:600;overflow-wrap:anywhere}
-#diario-bordo dialog{max-width:min(96vw,1000px);max-height:96vh;padding:12px;border:0;border-radius:12px;background:#fff;color:#222}
-#diario-bordo dialog::backdrop{background:#000d}
-#diario-bordo dialog img{display:block;max-width:90vw;max-height:76vh;object-fit:contain;margin:auto}
-@media(max-width:540px){#diario-bordo .diary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#diario-bordo .diary-photo .diary-secondary{width:100%;padding:8px}#diario-bordo .diary-panel{padding:14px}}
+#diario-bordo .diary-post{margin:12px 0;padding:15px}
+#diario-bordo .diary-delete{font-size:.9rem;min-height:44px}
+#diario-bordo [role=status]{overflow-wrap:anywhere;font-weight:600}
+#diario-bordo [role=status]:empty{display:none}
+#diario-bordo .diary-progress{width:100%;height:14px;accent-color:var(--diary-accent)}
+#diario-bordo .diary-progress-wrap{margin:12px 0}
+#diario-bordo .diary-bottom{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:sticky;bottom:0;z-index:4;padding:10px 0 calc(10px + env(safe-area-inset-bottom));background:var(--diary-bg);border-top:1px solid var(--diary-border);margin-top:18px}
+#diario-bordo .diary-bottom button{min-height:56px}
+#diario-bordo dialog{width:min(100%,920px);max-width:100%;max-height:100dvh;padding:12px;border:0;border-radius:14px;background:#171717;color:#fff;margin:auto;overflow:auto}
+#diario-bordo dialog::backdrop{background:#000e}
+#diario-bordo dialog img{display:block;width:100%;height:auto;max-height:68dvh;object-fit:contain;margin:10px auto}
+#diario-bordo dialog .diary-tools{justify-content:space-between}
+#diario-bordo dialog button{background:#303030;color:#fff;border-color:#888}
+#diario-bordo #diary-full-label{text-align:center;color:white}
+body.diary-app{background:#f7f6f0!important}
+body.diary-app>header,body.diary-app>nav,body.diary-app>footer,body.diary-app>.diary-test-banner{display:none!important}
+body.diary-app>main>:not(#diario-bordo){display:none!important}
+body.diary-app>main{max-width:720px!important;padding:12px 12px 0!important;margin:0 auto!important}
+body.diary-app #diario-bordo{margin:0!important;scroll-margin-top:0!important;padding:8px 0 0!important}
+body.diary-app #diario-bordo .diary-back{display:inline-flex}
+@media(max-width:540px){#diario-bordo .diary-panel{padding:14px}#diario-bordo .diary-fields{grid-template-columns:1fr}#diario-bordo .diary-feed-head button{font-size:.9rem}#diario-bordo .diary-grid{margin:10px -5px}body.diary-app #diario-bordo .diary-bottom{position:sticky;bottom:0}}
+@media(min-width:721px){#diario-bordo .diary-grid:not(.single){grid-template-columns:repeat(3,minmax(0,1fr))}}
